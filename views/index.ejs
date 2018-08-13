@@ -1,0 +1,28 @@
+<%include header%>
+<!--<h1>HELLO FROM EJS</h1>
+-->
+<h2>Add User</h2>
+<form method=post action=/addUser>
+  <input placeholder=FirstName type=text name=fname required>
+  <br>
+  <input placeholder=LastName type=text name=lname required>
+  <br>
+  <input placeholder=email type=text name=email required>
+  <input type=submit value=submit>
+</form>
+<%if(errors != undefined){%>
+<h2><%=errors%></h2>
+<%}%>
+
+<br>
+
+<br>
+<h2>Our <%=title%></h2>
+<ul>
+<%users.forEach(function(user){%>
+
+  <li><h3><%=user.fname%> & <%=user.phone%> & <%=user.id%>&nbsp;<form style="display:inline" method=post action=/delete><input type=hidden name=id value=<%=user.id%> ><input type=submit value=delete></form></h3></li>
+
+<%})%>
+</ul>
+<%include footer%>
